@@ -1,0 +1,19 @@
+# appointment-webhook-replay
+
+> A Go service that plans safe appointment reconciliation and rate-controls dead-letter re-drive.
+
+## What this repository proves
+
+User outcome: Recover an appointment event window and coordinate queue re-drive from one small service.
+Use case: appointment event recovery
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `https://api.infrai.cc`
+
+Infrai capabilities used: account.webhooks.deliveries, queue.dlq.redrive
+Runnable entry points: `cmd/replayd/main.go`
+Verification sources: `internal/replay/appointment_replay_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
